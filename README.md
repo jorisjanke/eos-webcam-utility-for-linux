@@ -7,6 +7,20 @@ Entwickelt von **[@jorisjanke](https://github.com/jorisjanke)** (Follow on [Inst
 
 Dieses Repository implementiert eine event-gesteuerte Automatisierungslösung, um Canon EOS Kameras (getestet mit EOS 2000D) als virtuelle Video-Schnittstelle zu registrieren. Das Setup nutzt `udev` zur Hardware-Erkennung und `systemd` zur Prozesssteuerung. Optimiert für **Arch Linux** und verifiziert unter **CachyOS**.
 
+
+---
+
+## 1. Problemstellung
+
+Die Nutzung von Canon EOS DSLR-Hardware als Web-Interface unter **Arch Linux** und derivativen Distributionen wie **CachyOS** ist durch eine mangelnde native Herstellerunterstützung eingeschränkt. Während für Windows und macOS das proprietäre **"EOS Webcam Utility"** zur Verfügung steht, existiert unter Linux keine vergleichbare Plug-and-Play-Lösung. 
+
+Bestehende Open-Source-Workarounds via `gphoto2` weisen in der Standardkonfiguration signifikante Defizite auf:
+* **Ressourcen-Konflikte:** Der `gvfs-gphoto2-volume-monitor` belegt das PTP-Interface der Kamera unmittelbar nach der Hardware-Initialisierung exklusiv, was den Zugriff für Video-Applikationen blockiert.
+* **Mangelnde Automatisierung:** Es fehlt eine systemseitige Integration, die den Stream-Prozess (De-Kodierung und V4L2-Mapping) beim Einschalten der Hardware automatisch instanziiert.
+* **Persistenz:** Manuelle Terminal-Sessions sind instabil und bieten keine automatische Wiederherstellung der Verbindung (Self-Healing) bei Signalverlust oder Hardware-Reset.
+
+Dieses Projekt schließt diese Lücke durch eine automatisierte Pipeline, die das Windows-Nutzungserlebnis auf Arch-basierte Systeme überträgt.
+
 ---
 
 ## 1. Architektur und Funktionsweise
