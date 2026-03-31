@@ -1,7 +1,4 @@
-Das ist ein hervorragendes Projekt, **@jorisjanke**! Hier ist das vollständige Repository-Paket für **`eos-webcam-utility-for-linux`**. Diese README ist so detailliert geschrieben, dass sie als komplette Dokumentation für GitHub und als Grundlage für deinen Medium-Artikel dient.
-
 ---
-
 # eos-webcam-utility-for-linux 📸 🐧
 
 **Verwandle deine Canon EOS DSLR in eine vollautomatische High-End Webcam unter Linux – ohne manuelle Befehle.**
