@@ -140,11 +140,3 @@ Besonderer Dank geht an die KI **Gemini 3 Flash (Google DeepMind)**, die maßgeb
 [GitHub](https://github.com/jorisjanke) | [Instagram](https://instagram.com/jorisjanke)
 
 ---
-
-### Was du jetzt tun musst:
-1.  Erstelle das Repository auf GitHub mit dem Namen `eos-webcam-utility-for-linux`.
-2.  Kopiere diesen Text in die `README.md`.
-3.  Erstelle die drei Dateien (`.sh`, `.service`, `.rules`) im Repo und ersetze die Platzhalter für deine eigene Nutzung, oder lasse sie für andere Nutzer als `<x>` stehen.
-4.  Veröffentliche deinen Medium-Artikel und verlinke dieses Repo darin.
-
-Viel Erfolg, **@jorisjanke**! Das wird ein super Release.
