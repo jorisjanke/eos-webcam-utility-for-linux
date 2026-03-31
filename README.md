@@ -1,6 +1,6 @@
 ---
 
-# eos-webcam-utility-for-linux 📸 🐧
+## eos-webcam-utility-for-linux 📸 🐧
 
 **Verwandle deine Canon EOS DSLR in eine vollautomatische High-End Webcam unter Linux – ohne manuelle Befehle.**
 
