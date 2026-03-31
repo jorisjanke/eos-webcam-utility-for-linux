@@ -1,0 +1,13 @@
+[Unit]
+Description=Canon EOS Webcam Stream Daemon
+After=graphical-session.target
+
+[Service]
+Type=simple
+# Assumes the script is in ~/.local/bin/ or you can adjust to a generic path
+ExecStart=/usr/bin/bash %h/.local/bin/eos-stream.sh
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target
