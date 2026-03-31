@@ -1,7 +1,6 @@
 #!/bin/bash
 # Canon EOS Webcam Utility for Linux
 # Author: @jorisjanke (GitHub/Instagram)
-# AI Collaboration: Gemini 3 Flash (Google DeepMind)
 
 # Kill potentially blocking processes (gvfs/gphoto)
 pkill -9 -f gphoto2 || true
