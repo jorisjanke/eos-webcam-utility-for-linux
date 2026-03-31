@@ -4,8 +4,8 @@ After=graphical-session.target
 
 [Service]
 Type=simple
-# Assumes the script is in ~/.local/bin/ or you can adjust to a generic path
-ExecStart=/usr/bin/bash %h/.local/bin/eos-stream.sh
+# %h ist eine systemd-Variable für dein Home-Verzeichnis
+ExecStart=/usr/bin/bash %h/<PATH_TO_SCRIPT>/eos-stream.sh
 Restart=always
 RestartSec=3
 
