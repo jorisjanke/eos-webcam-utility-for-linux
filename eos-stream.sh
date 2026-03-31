@@ -1,20 +1,22 @@
 #!/bin/bash
+# ==========================================
 # Canon EOS Webcam Utility for Linux
 # Author: @jorisjanke (GitHub/Instagram)
+# ==========================================
 
-# Kill potentially blocking processes (gvfs/gphoto)
+# 1. Beende blockierende Prozesse (Gvfs/Gphoto)
+# Viele Linux-Desktops mounten die Kamera automatisch als Laufwerk.
+# Das verhindert, dass wir den Video-Stream abgreifen können.
 pkill -9 -f gphoto2 || true
 if command -v gio &> /dev/null; then
+    # Versuche den spezifischen Mount der Kamera auszuhängen
     gio mount -s gphoto2 2>/dev/null || true
 fi
 
-# Short delay to let the USB bus settle
+# 2. Kurze Pause für den USB-Bus
 sleep 1
 
-# Auto-detect the first available video loopback device
-VIDEO_DEV=$(ls /dev/video* | head -n 1)
-
-# Start the stream
-# Using --reset to ensure the PTP interface is fresh
+# 3. Der Stream-Befehl
+# --reset sorgt dafür, dass die PTP-Schnittstelle der Kamera frisch initialisiert wird.
 /usr/bin/gphoto2 --stdout --capture-movie --reset | \
-/usr/bin/ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 "$VIDEO_DEV"
+/usr/bin/ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 <VIDEO_DEVICE_PATH>
