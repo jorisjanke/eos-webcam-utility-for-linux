@@ -1,0 +1,8 @@
+# Trigger on Camera Power On / Connect (Canon EOS 2000D ID: 04a9:32e1)
+SUBSYSTEM=="usb", ATTR{idVendor}=="04a9", ATTR{idProduct}=="32e1", ACTION=="add|bind", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}="eos-webcam.service"
+
+# Stop on Camera Power Off
+SUBSYSTEM=="usb", ATTR{idVendor}=="04a9", ATTR{idProduct}=="32e1", ACTION=="remove", RUN+="/usr/bin/systemctl --user stop eos-webcam.service"
+
+# Set permissions for the user-space driver
+SUBSYSTEM=="usb", ATTR{idVendor}=="04a9", ATTR{idProduct}=="32e1", MODE="0666"
